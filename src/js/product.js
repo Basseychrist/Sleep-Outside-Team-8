@@ -5,7 +5,7 @@ const dataSource = new ProductData("tents");
 
 function addProductToCart(product) {
   const cartItems = getLocalStorage("so-cart") || []; // get cart array of items from local storage if null set to empty array
-  cartItems.push(product); 
+  cartItems.push(product);
   setLocalStorage("so-cart", cartItems);
 }
 
@@ -18,4 +18,3 @@ async function addToCartHandler(e) {
 document
   .getElementById("addToCart")
   .addEventListener("click", addToCartHandler);
-
