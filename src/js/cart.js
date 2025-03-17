@@ -4,8 +4,11 @@ function renderCartContents() {
   let cartItems = getLocalStorage("so-cart");
 
   // Ensure cartItems is an array
-  if (!Array.isArray(cartItems)) {
-    cartItems = []; // Fallback to an empty array if invalid
+  if (!Array.isArray(cartItems) || cartItems.length === 0) {
+    cartItems = []; // Fallback to an empty array if invalid or empty
+    document.querySelector(".product-list").innerHTML =
+      "<p>Your cart is empty.</p>";
+    return; // Exit the function early if the cart is empty
   }
 
   const htmlItems = cartItems.map((item) => cartItemTemplate(item));
