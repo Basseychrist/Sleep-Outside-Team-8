@@ -45,6 +45,8 @@
     "FinalPrice": 199.99
   },
   {
+<<<<<<< HEAD
+=======
     "Id": "989CG",
     "NameWithoutBrand": "Talus Tent - 3-Person, 3-Season",
     "Name": "The North Face Talus Tent - 3-Person, 3-Season",
@@ -67,6 +69,7 @@
     "FinalPrice": 179.99
   },
   {
+>>>>>>> 3bd59387d6b24f2660d43cb910c4a77527fe27a9
     "Id": "985PR",
     "NameWithoutBrand": "Alpine Guide Tent - 3-Person, 4-Season",
     "Name": "The North Face Alpine Guide Tent - 3-Person, 4-Season",
@@ -89,6 +92,8 @@
     "FinalPrice": 349.99
   },
   {
+<<<<<<< HEAD
+=======
     "Id": "880RT",
     "NameWithoutBrand": "Ajax Tent - 2-Person, 3-Season",
     "Name": "Marmot Ajax Tent - 2-Person, 3-Season",
@@ -112,6 +117,7 @@
   },
 
   {
+>>>>>>> 3bd59387d6b24f2660d43cb910c4a77527fe27a9
     "Id": "344YJ",
     "NameWithoutBrand": "Rimrock Tent - 2-Person, 3-Season",
     "Name": "Cedar Ridge Rimrock Tent - 2-Person, 3-Season",

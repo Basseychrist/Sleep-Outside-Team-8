@@ -47,3 +47,34 @@ export function setClick(selector, callback) {
   });
   qs(selector).addEventListener("click", callback);
 }
+
+export function renderWithTemplate(
+  template,
+  parentElement,
+  data,
+  callback
+) {
+  const htmlStrings = list.map(template);
+  
+  parentElement.insertAdjacentHTML(position, htmlStrings.join(""));
+}
+
+ async function loadTemplate(path){
+  const content = await fetch(path);
+
+  if (content.ok){
+    const data = await content.text();
+    return data;
+  }
+}
+
+ export async function loadHeaderFooter(){
+  const header = await loadTemplate("./partials/header.html");
+  const footer = await loadTemplate("./partials/footer.html");
+
+  const header_id = document.querySelector("#main-header");
+  const footer_id = document.querySelector("#main-footer");
+
+  renderWithTemplate(header, header_id)
+  renderWithTemplate(footer, footer_id)
+ }
