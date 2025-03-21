@@ -47,3 +47,18 @@ export function setClick(selector, callback) {
   });
   qs(selector).addEventListener("click", callback);
 }
+
+export function renderWithTemplate(
+  template,
+  parentElement,
+  data,
+  callback
+) {
+  parentElement.innerHTML = template;
+
+  if(callback) {
+    callback(data)
+  };
+
+  parentElement.insertAdjacentHTML(position, htmlStrings.join(""));
+}
