@@ -22,23 +22,6 @@ export function getParam(param) {
   return product;
 }
 
-// function to take a list of objects and a template and insert the objects as HTML into the DOM
-
-export function renderListWithTemplate(
-  templateFn,
-  parentElement,
-  list,
-  position = "afterbegin",
-  clear = false
-) {
-  const htmlStrings = list.map(templateFn);
-  // if clear is true we need to clear out the contents of the parent.
-  if (clear) {
-    parentElement.innerHTML = "";
-  }
-  parentElement.insertAdjacentHTML(position, htmlStrings.join(""));
-}
-
 // set a listener for both touchend and click
 export function setClick(selector, callback) {
   qs(selector).addEventListener("touchend", (event) => {
@@ -48,33 +31,39 @@ export function setClick(selector, callback) {
   qs(selector).addEventListener("click", callback);
 }
 
-export function renderWithTemplate(
-  template,
-  parentElement,
-  data,
-  callback
-) {
+// function to take a list of objects and a template and insert the objects as HTML into the DOM
+
+export function renderListWithTemplate(template, parentElement, list, position = "afterbegin", clear = false) {
   const htmlStrings = list.map(template);
-  
+  // if clear is true we need to clear out the contents of the parent.
+  if (clear) {
+    parentElement.innerHTML = "";
+  }
   parentElement.insertAdjacentHTML(position, htmlStrings.join(""));
 }
 
- async function loadTemplate(path){
-  const content = await fetch(path);
-
-  if (content.ok){
-    const data = await content.text();
-    return data;
+export async function renderWithTemplate(template, parentElement, data, callback) {
+  parentElement.innerHTML = template;
+  if (callback) {
+    callback(data);
   }
 }
 
- export async function loadHeaderFooter(){
-  const header = await loadTemplate("./partials/header.html");
-  const footer = await loadTemplate("./partials/footer.html");
+async function loadTemplate(path) {
+  const res = await fetch(path);
+  const template = await res.text();
+  return template;
+}
 
-  const header_id = document.querySelector("#main-header");
-  const footer_id = document.querySelector("#main-footer");
+export async function loadHeaderFooter() {
+  const headerTemplate = await loadTemplate("../partials/header.html");
+  const footerTemplate = await loadTemplate("../partials/footer.html");
 
-  renderWithTemplate(header, header_id)
-  renderWithTemplate(footer, footer_id)
- }
+  const headerElement = document.querySelector("#main-header");
+  const footerElement = document.querySelector("#main-footer");
+
+  renderWithTemplate(headerTemplate, headerElement);
+  renderWithTemplate(footerTemplate, footerElement);
+}
+
+ 

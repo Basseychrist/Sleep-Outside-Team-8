@@ -96,6 +96,41 @@ button {
 }
 /* End utility classes */
 
+/* Categories Styles*/
+.products {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem 0;
+}
+
+.product-grid {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  padding: 0;
+}
+
+.product-grid a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+
+.product-grid img {
+  width: 60px; 
+  height: auto;
+}
+
+.product-grid h2 {
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  text-align: center;
+}
+
 /* Cart icon styles */
 .cart {
   padding-top: 1em;
@@ -119,7 +154,7 @@ button {
   max-width: 600px;
   margin: auto;
 }
-.products {
+.top-products {
   padding: 0.5em;
 }
 .product-list {
