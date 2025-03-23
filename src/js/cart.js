@@ -6,7 +6,8 @@ function renderCartContents() {
   // Ensure cartItems is an array
   if (!Array.isArray(cartItems) || cartItems.length === 0) {
     cartItems = [];
-    document.querySelector(".product-list").innerHTML = "<p>Your cart is empty.</p>";
+    document.querySelector(".product-list").innerHTML =
+      "<p>Your cart is empty.</p>";
     return;
   }
 
@@ -19,8 +20,6 @@ function renderCartContents() {
     input.addEventListener("change", handleQuantityChange);
   });
 }
-
-
 
 function cartItemTemplate(item) {
   const newItem = `<li class="cart-card divider">
