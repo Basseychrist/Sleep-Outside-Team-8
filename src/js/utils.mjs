@@ -39,12 +39,14 @@ export function renderListWithTemplate(template, parentElement, list, position =
   parentElement.insertAdjacentHTML(position, htmlStrings.join(""));
 }
 
-export function renderWithTemplate(template, parentElement, data, callback) {
-  parentElement.innerHTML = template;
-  if (callback) {
-    callback(data);
+export function renderWithTemplate(template, parentElement) {
+  if (!parentElement) {
+    console.error("Parent element not found!");
+    return;
   }
+  parentElement.innerHTML = template;
 }
+
 
 async function loadTemplate(path) {
   const res = await fetch(path);
@@ -59,6 +61,6 @@ export async function loadHeaderFooter() {
   const headerElement = document.querySelector("#main-header");
   const footerElement = document.querySelector("#main-footer");
 
-  renderWithTemplate(headerTemplate, headerElement);
-  renderWithTemplate(footerTemplate, footerElement);
+renderWithTemplate(headerTemplate, headerElement);
+renderWithTemplate(footerTemplate, footerElement);
 }
