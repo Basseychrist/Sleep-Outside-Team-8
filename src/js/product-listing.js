@@ -9,4 +9,8 @@ const dataSource = new ProductData();
 const element = document.querySelector(".product-list");
 const listing = new ProductList(category, dataSource, element);
 
+<<<<<<< HEAD
 listing.init();
+=======
+listing.init();
+>>>>>>> c1d774e83ce42de85ed86fd030dbedba12a0f026
