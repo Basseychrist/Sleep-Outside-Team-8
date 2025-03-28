@@ -4,7 +4,7 @@ import {
   alertMessage,
   removeAllAlerts,
 } from "./utils.mjs";
-import ExternalServices from "./ExtertnalServices.mjs";
+import ExternalServices from "./ExternalServices.mjs";
 
 const services = new ExternalServices();
 function formDataToJSON(formElement) {
@@ -100,7 +100,6 @@ export default class CheckoutProcess {
       for (let message in err.message) {
         alertMessage(err.message[message]);
       }
-
       console.log(err);
     }
   }

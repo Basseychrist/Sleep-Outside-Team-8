@@ -1,4 +1,4 @@
-import { getParam, loadHeaderFooter, getLocalStorage, setLocalStorage, qs } from "./utils.mjs";
+import { getParam, loadHeaderFooter, getLocalStorage, setLocalStorage} from "./utils.mjs";
 import ProductData from "./ProductData.mjs";
 import ProductDetails from "./ProductDetails.mjs";
 
@@ -25,12 +25,12 @@ async function initProductPage() {
 initProductPage(); // Initialize the product page and event listener
 
 // Function to add product to cart
-function addProductToCart(product) {
+function addProductToCart(productcart) {
   let cartItems = getLocalStorage("so-cart");
   if (!Array.isArray(cartItems)) {
     cartItems = [];
   } // Get cart array of items from local storage
-  cartItems.push(product);
+  cartItems.push(productcart);
   setLocalStorage("so-cart", cartItems);
 }
 
@@ -42,12 +42,11 @@ async function addToCartHandler(e) {
     return;
   }
 
-  const product = await dataSource.findProductById(productId);
-  if (!product) {
-    console.error("Product not found!");
+  const productadd = await dataSource.findProductById(productId);
+  if (!productadd) {
+    console.log("Product not found!");
     return;
   }
 
   addProductToCart(product);
 }
-=======
