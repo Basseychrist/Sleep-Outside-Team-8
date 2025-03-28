@@ -9,6 +9,7 @@ const productID = getParam("product");
 
 const product = new ProductDetails(productID, dataSource);
 
+
 async function initProductPage() {
   await product.init(); // Wait for the product to load
 
@@ -49,3 +50,4 @@ async function addToCartHandler(e) {
 
   addProductToCart(product);
 }
+=======
