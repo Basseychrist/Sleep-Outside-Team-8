@@ -147,6 +147,30 @@ button {
 
 /* End cart icon styles */
 
+/* Breadcrumbs CSS */
+
+.breadcrumb-navigation {
+  padding: 10px;
+  font-size: 14px;
+}
+
+.breadcrumb-navigation ul {
+  list-style: none;
+  display: flex;
+  gap: 5px;
+}
+
+.breadcrumb-navigation li::after {
+  content: "→";
+  margin-left: 5px;
+}
+
+.breadcrumb-navigation li:last-child::after {
+  content: "";
+}
+
+/* End Breadcrumbs CSS */
+
 .mission {
   padding: 0 0.5em;
   /* margin: 0.5em 0; */
