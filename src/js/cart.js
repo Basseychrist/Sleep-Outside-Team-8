@@ -6,12 +6,19 @@ function renderCartContents() {
   // Ensure cartItems is an array
   if (!Array.isArray(cartItems) || cartItems.length === 0) {
     cartItems = [];
-    document.querySelector(".product-list").innerHTML = "<p>Your cart is empty.</p>";
+    document.querySelector(".product-list").innerHTML =
+      "<p>Your cart is empty.</p>";
+    document.querySelector(".cart-total").innerHTML = ""; // Clear total if cart is empty
     return;
   }
 
   const htmlItems = cartItems.map((item) => cartItemTemplate(item));
   document.querySelector(".product-list").innerHTML = htmlItems.join("");
+
+  // Calculate and display the total
+  const total = calculateCartTotal(cartItems);
+  document.querySelector(".cart-total").innerHTML =
+    `<p>Total: $${total.toFixed(2)}</p>`;
 
   // Attach event listeners to quantity inputs
   const quantityInputs = document.querySelectorAll(".quantity-input");
@@ -20,7 +27,12 @@ function renderCartContents() {
   });
 }
 
-
+function calculateCartTotal(cartItems) {
+  return cartItems.reduce(
+    (total, item) => total + item.FinalPrice * item.Quantity,
+    0,
+  );
+}
 
 function cartItemTemplate(item) {
   const newItem = `<li class="cart-card divider">
